@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xxl.job.executor.dao.ApiMonitorMapper">
+  <resultMap id="BaseResultMap" type="com.xxl.job.executor.model.ApiMonitor">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="apiName" jdbcType="VARCHAR" property="apiName" />
+    <result column="invokeTime" jdbcType="TIMESTAMP" property="invokeTime" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="invokeCost" jdbcType="INTEGER" property="invokeCost" />
+  </resultMap>
+  
+  <select id="selectApiMonitorReport" resultType="com.xxl.job.executor.model.ApiMonitor">
+  
+  </select>
+</mapper>

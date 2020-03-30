@@ -1,4 +1,4 @@
-package com.xxl.job.executor.service.jobhandler;
+package com.xxl.job.executor.controller;
 /**
  * Created by bxt on 2020/3/24.
  */

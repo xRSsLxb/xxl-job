@@ -2,11 +2,13 @@
 <configuration debug="false" scan="true" scanPeriod="1 seconds">
 
     <contextName>logback</contextName>
-    <property name="log.path" value="/data/applogs/xxl-job/xxl-job-executor-sample-springboot.log"/>
+    <property name="log.path" value="/data/applogs/xxl-job/xxl-job.log"/>
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <!--<pattern>%d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n</pattern>-->
+            <!--格式化输出：%d表示日期，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>%-12(%d{yyyy-MM-dd HH:mm:ss.SSS}) |-%-5level %c -| %msg%n</pattern>
         </encoder>
     </appender>
 
