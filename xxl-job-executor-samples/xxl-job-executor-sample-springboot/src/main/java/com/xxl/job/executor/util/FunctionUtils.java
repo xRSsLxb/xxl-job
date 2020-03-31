@@ -38,7 +38,7 @@ public class FunctionUtils {
     }
     
     /**
-     * 判断list为空
+     * String转int
      *
      * @param s,defaultValue
      * @return boolean

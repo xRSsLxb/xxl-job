@@ -1,9 +1,12 @@
 package com.xxl.job.executor.service;
 
+import com.xxl.job.executor.util.ExceptionUitl;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.ListOperations;
@@ -19,6 +22,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class RedisService {
+    
+    /**.
+     * log4j日志
+     */
+    private static Logger log = LoggerFactory.getLogger(RedisService.class);
     
     @Autowired
     private RedisTemplate redisTemplate;
@@ -37,7 +45,7 @@ public class RedisService {
             operations.set(key, value);
             result = true;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(ExceptionUitl.getExceptionMsg(e));
         }
         return result;
     }
@@ -57,7 +65,7 @@ public class RedisService {
             redisTemplate.expire(key, expireTime, TimeUnit.SECONDS);
             result = true;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(ExceptionUitl.getExceptionMsg(e));
         }
         return result;
     }

@@ -1,4 +1,4 @@
-package com.xxl.job.admin.core.util;
+package com.xxl.job.executor.util;
 /**
  * Created by bxt on 2020/3/31.
  */

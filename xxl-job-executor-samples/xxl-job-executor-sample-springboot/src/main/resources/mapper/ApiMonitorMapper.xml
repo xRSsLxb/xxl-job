@@ -6,7 +6,8 @@
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="apiName" jdbcType="VARCHAR" property="apiName" />
     <result column="invokeTime" jdbcType="TIMESTAMP" property="invokeTime" />
-    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="respCode" jdbcType="VARCHAR" property="respCode" />
+    <result column="respMsg" jdbcType="VARCHAR" property="respMsg" />
     <result column="invokeCost" jdbcType="INTEGER" property="invokeCost" />
   </resultMap>
   

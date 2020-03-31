@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * 详细介绍类情况.
+ * ApiMonitor调度处理器.
  *
  * @ClassName ApiMonitorJob
  * @Author liuxb

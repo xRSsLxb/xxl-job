@@ -29,9 +29,14 @@ public class ApiMonitor {
     private Date invokeTime;
     
     /**
-     * 是否成功,0失败 1 成功
+     * 响应码
      */
-    private Integer state;
+    private String respCode;
+    
+    /**
+     * 响应体
+     */
+    private String respMsg;
     
     /**
      * 接口响应耗时
@@ -63,12 +68,12 @@ public class ApiMonitor {
         this.invokeTime = invokeTime;
     }
     
-    public Integer getState() {
-        return state;
+    public String getRespCode() {
+        return respCode;
     }
     
-    public void setState(Integer state) {
-        this.state = state;
+    public void setRespCode(String respCode) {
+        this.respCode = respCode;
     }
     
     public Integer getInvokeCost() {
@@ -79,6 +84,13 @@ public class ApiMonitor {
         this.invokeCost = invokeCost;
     }
     
+    public String getRespMsg() {
+        return respMsg;
+    }
+    
+    public void setRespMsg(String respMsg) {
+        this.respMsg = respMsg;
+    }
     
     
 }
