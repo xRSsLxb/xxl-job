@@ -6,7 +6,7 @@
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <pattern>%-12(%d{yyyy-MM-dd HH:mm:ss.SSS}) |-%-5level %c -| %msg%n</pattern>
         </encoder>
     </appender>
 
