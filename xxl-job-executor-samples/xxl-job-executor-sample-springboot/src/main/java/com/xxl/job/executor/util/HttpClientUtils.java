@@ -3,11 +3,28 @@ package com.xxl.job.executor.util;
  * Created by bxt on 2020/3/31.
  */
 
+import java.net.InetAddress;
+import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.Map;
+import org.apache.commons.httpclient.Header;
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpMethodBase;
+import org.apache.commons.httpclient.NameValuePair;
+import org.apache.commons.httpclient.cookie.CookiePolicy;
+import org.apache.commons.httpclient.methods.DeleteMethod;
+import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.httpclient.methods.HeadMethod;
+import org.apache.commons.httpclient.methods.OptionsMethod;
+import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.httpclient.methods.PutMethod;
+import org.apache.commons.httpclient.methods.TraceMethod;
+import org.apache.commons.httpclient.params.HttpMethodParams;
+import org.apache.http.params.CoreConnectionPNames;
 
 /**
- * 详细介绍类情况.
+ * 模拟各种Http请求工具类.
  *
  * @ClassName HttpClientUtils
  * @Author liuxb
@@ -16,13 +33,7 @@ import java.util.Map;
  */
 public class HttpClientUtils {
     
-    /**
-     * 模拟各种Http请求
-     *
-     * @param bo
-     * @return
-     */
-    public static Map<String, Object> request(HttpRequestBo bo) {
+    /*public static Map<String, Object> request(HttpRequestBo bo) {
         
         Map<String, Object> map = new HashMap<String, Object>();
         double begin = System.currentTimeMillis();
@@ -83,7 +94,7 @@ public class HttpClientUtils {
             //获取请求的Host，用于IP解析
             String host = method.getHostConfiguration().getHost();
             
-            StringBuffer sb = new StringBuffer("");
+            StringBuffer sb = new StringBuffer(20);
             for (Header header : heads) {
                 sb.append(header.getName())
                         .append(" : ")
@@ -94,30 +105,30 @@ public class HttpClientUtils {
             map.put("head", sb.toString());
             String result = method.getResponseBodyAsString();
             map.put("result", result);
-            String ip = "未知";
+            String ip;
             try {
                 InetAddress iAddress = InetAddress.getByName(host);
                 ip = iAddress.getHostAddress();
                 map.put("host", ip);
             } catch (Exception e) {
-                LoggerUtils.fmtError(HttpManager.class, e, "获取IP地址失败，域名:[%s]", host);
+                LoggerUtils.fmtError(HttpClientUtils.class, e, "获取IP地址失败，域名:[%s]", host);
             }
         } catch (UnknownHostException e) {
             //域名错误
             map.put("message", "请输入正确的网址");
-            LoggerUtils.fmtError(HttpManager.class, e, "网址异常[%s]", url);
+            LoggerUtils.fmtError(HttpClientUtils.class, e, "网址异常[%s]", url);
         } catch (SocketTimeoutException e) {
             //超时
             map.put("message", "请求地址超时");
-            LoggerUtils.fmtError(HttpManager.class, e, "请求地址超时[%s]", url);
+            LoggerUtils.fmtError(HttpClientUtils.class, e, "请求地址超时[%s]", url);
         } catch (Exception e) {
             //其他异常
             map.put("message", "请求出现未知异常，请重试！");
-            LoggerUtils.fmtError(HttpManager.class, e, "请求出现未知异常，请重试！[%s]", url);
+            LoggerUtils.fmtError(HttpClientUtils.class, e, "请求出现未知异常，请重试！[%s]", url);
         }
         double end = System.currentTimeMillis();
         map.put("time", (end - begin) / 1000);
         return map;
         
-    }
+    }*/
 }
